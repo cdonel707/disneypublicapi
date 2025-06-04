@@ -9,7 +9,7 @@ groups:
         version: 1.2.4
         output:
           location: npm
-          package-name: disney
+          package-name: disney-public-sdk
           token: ${NPM_TOKEN}
         github:
           repository: cdonel707/disney-typescript-sdk

@@ -2,6 +2,7 @@
 api:
   specs:
     - openapi: ../openapi.yaml
+groups:
   ts-sdk:
     generators:
       - name: fernapi/fern-typescript-node-sdk
@@ -9,8 +10,8 @@ api:
         output:
           location: npm
           package-name: disney
+          token: ${{ secrets.NPM_TOKEN }}
         github:
           repository: cdonel707/disney-typescript-sdk
-          mode: pull-request
         config:
           namespaceExport: DisneyOpensource

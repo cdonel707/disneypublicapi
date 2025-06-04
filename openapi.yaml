@@ -1,0 +1,111 @@
+openapi: 3.0.2
+info:
+  title: Disney API
+  description: A magical API to retrieve Disney character data.
+  version: 1.0.0
+servers:
+  - url: https://api.disneyapi.dev
+
+paths:
+  /character:
+    get:
+      summary: Get all characters
+      operationId: getAllCharacters
+      parameters:
+        - name: page
+          in: query
+          description: Page number of results
+          required: false
+          schema:
+            type: integer
+        - name: name
+          in: query
+          description: Search for a character by name
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A paginated list of Disney characters
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CharacterList'
+
+  /character/{id}:
+    get:
+      summary: Get character by ID
+      operationId: getCharacterById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A Disney character
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Character'
+
+components:
+  schemas:
+    CharacterList:
+      type: object
+      properties:
+        totalPages:
+          type: integer
+        nextPage:
+          type: string
+          nullable: true
+        previousPage:
+          type: string
+          nullable: true
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Character'
+
+    Character:
+      type: object
+      properties:
+        _id:
+          type: string
+        name:
+          type: string
+        films:
+          type: array
+          items:
+            type: string
+        shortFilms:
+          type: array
+          items:
+            type: string
+        tvShows:
+          type: array
+          items:
+            type: string
+        videoGames:
+          type: array
+          items:
+            type: string
+        parkAttractions:
+          type: array
+          items:
+            type: string
+        allies:
+          type: array
+          items:
+            type: string
+        enemies:
+          type: array
+          items:
+            type: string
+        imageUrl:
+          type: string
+        createdAt:
+          type: string
+        updatedAt:
+          type: string

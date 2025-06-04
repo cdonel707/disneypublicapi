@@ -10,7 +10,7 @@ groups:
         output:
           location: npm
           package-name: disney
-          token: ${{ NPM_TOKEN }}
+          token: ${NPM_TOKEN}
         github:
           repository: cdonel707/disney-typescript-sdk
         config:

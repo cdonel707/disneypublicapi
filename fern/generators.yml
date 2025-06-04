@@ -10,7 +10,7 @@ api:
           location: npm
           package-name: disney
         github:
-          repository: fern-demo/disney-typescript-sdk
+          repository: cdonel707/disney-typescript-sdk
           mode: pull-request
         config:
           namespaceExport: DisneyOpensource
